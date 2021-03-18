@@ -4,7 +4,9 @@ description: 算法学习记录
 
 # Algorithm
 
-GitBook Reference
+## GitBook Reference
 
-[https://docs.gitbook.com/](https://docs.gitbook.com/)
+{% embed url="https://docs.gitbook.com/" %}
+
+
 
