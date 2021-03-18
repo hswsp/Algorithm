@@ -10,3 +10,7 @@
 
 * [外部排序 - 基于堆排序\(最大堆\)+最大赢者树](sorting-and-order-statistics/externalsorting.md)
 
+---
+
+* [What is GitBook](https://docs.gitbook.com/)
+
