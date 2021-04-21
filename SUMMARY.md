@@ -2,6 +2,10 @@
 
 * [Algorithm](README.md)
 
+## DataStructure
+
+* [Trie树（字典树，单词查找树）](datastructure/trie-shu-zi-dian-shu-dan-ci-cha-zhao-shu.md)
+
 ## Dynamic Programming
 
 * [经典动态规划：打家劫舍系列问题](dynamic-programming/da-jia-jie-she-xi-lie-wen-ti.md)
