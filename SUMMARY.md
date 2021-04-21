@@ -14,11 +14,8 @@
 
 * [外部排序 - 基于堆排序\(最大堆\)+最大赢者树](sorting-and-order-statistics/externalsorting.md)
 
----
-
-* [What is GitBook](https://docs.gitbook.com/)
-
 ## Applications
 
 * [剖析微服务接口鉴权限流背后的数据结构和算法](applications/pou-xi-wei-fu-wu-jie-kou-jian-quan-xian-liu-bei-hou-de-shu-ju-jie-gou-he-suan-fa.md)
+* [What is GitBook](https://docs.gitbook.com/)
 
