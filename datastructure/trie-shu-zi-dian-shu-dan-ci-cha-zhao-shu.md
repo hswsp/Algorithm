@@ -1,6 +1,6 @@
 # Trie树（字典树，单词查找树）
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ## 例题引入
 
@@ -22,7 +22,7 @@
 
 那么首先，Trie树长什么样子呢？
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%2811%29.png)
 
 上图就是由单词at，bee，ben，bt，q组成的Trie树
 
@@ -53,7 +53,7 @@ struct Trie
 
 插入操作就是将单词的每个字母都逐一插入Trie树，插入前看这个字母对应的节点是否存在，若不存在就新建一个节点，否则就共享那一个节点，还是以下图为例：
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%284%29.png)
 
 假如说我们要在原Trie树中新插入一个单词and，那我们的操作为：
 
@@ -83,7 +83,7 @@ void build_trie()
 
 查询操作和插入操作其实差不多，就是在Trie树中找这个单词的每个字母，若找到了就继续找下去，若没有找到就可以直接退出了，因为若没找到就说明没有这个单词，还还还是以下图为例：
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 
 
