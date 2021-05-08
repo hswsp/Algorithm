@@ -18,6 +18,7 @@
 ## Applications
 
 * [剖析微服务接口鉴权限流背后的数据结构和算法](applications/pou-xi-wei-fu-wu-jie-kou-jian-quan-xian-liu-bei-hou-de-shu-ju-jie-gou-he-suan-fa.md)
+* [P2P 网络核心技术：Gossip 协议](applications/p2p-wang-luo-he-xin-ji-shu-gossip-xie-yi.md)
 
 ## Parallelism
 
