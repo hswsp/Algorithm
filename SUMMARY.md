@@ -22,5 +22,6 @@
 ## Parallelism
 
 * [接口的幂等性怎么设计？](parallelism/jie-kou-de-mi-deng-xing-zen-me-she-ji.md)
+* [分布式 id 生成算法-SnowFlake 算法](parallelism/fen-bu-shi-id-sheng-cheng-suan-fa-snowflake-suan-fa.md)
 * [What is GitBook](https://docs.gitbook.com/)
 
