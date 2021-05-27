@@ -84,11 +84,70 @@ if len(pattern) >= 2 and pattern[1] == '*':
 # 或者当 pattern[0] 和 text[0] 匹配后，移动 text
 ```
 
-可以看到，我们是通过保留 pattern 中的「\*」，同时向后推移 text，来实现将字符重复匹配多次的功能。举个简单的例⼦就能理解这个逻辑了。假 设 `pattern = a , text = aaa`，画个图看看匹配过程：
+可以看到，我们是通过保留 pattern 中的「\*」，同时向后推移 text，来实现将字符重复匹配多次的功能。举个简单的例⼦就能理解这个逻辑了。假 设 `pattern = a* , text = aa`，画个图看看匹配过程：
 
 ![](../.gitbook/assets/screen-shot-2021-05-27-at-1.33.32-pm.png)
 
 ⾄此，正则表达式算法就基本完成了，
 
+## 四、动态规划
 
+将上述结果合并一下，就得到我们的暴力递归算法：
+
+```python
+# 暴⼒递归 
+def isMatch(text, pattern) -> bool: 
+    if not pattern: return not text 
+    first = bool(text) and pattern[0] in {text[0], '.'} 
+    
+    if len(pattern) >= 2 and pattern[1] == '*': 
+        return isMatch(text, pattern[2:]) or \ 
+        first and isMatch(text[1:], pattern) 
+    else:
+        return first and isMatch(text[1:], pattern[1:])
+```
+
+我选择使⽤「备忘录」递归的⽅法来降低复杂度。有了暴⼒解法，优化的过程及其简单，就是使⽤两个变量 i, j 记录当前匹配到的位置，从⽽避免使⽤⼦字符串切⽚，并且将 i, j 存⼊备忘录，避免重复计算即可。
+
+优化解法⽆⾮就是把暴⼒解法「翻译」了⼀遍，加了个 memo 作为备忘录，仅此⽽已。
+
+```python
+# 带备忘录的递归 
+def isMatch(text, pattern) -> bool: 
+    memo = dict() # 备忘录 
+    def dp(i, j): 
+        if (i, j) in memo: return memo[(i, j)] 
+        
+        if j == len(pattern): return i == len(text) 
+        
+        first = i < len(text) and pattern[j] in {text[i], '.'} 
+        
+        if j <= len(pattern) - 2 and pattern[j + 1] == '*': 
+            ans = dp(i, j + 2) or first and dp(i + 1, j) 
+        else:
+            ans = first and dp(i + 1, j + 1) 
+        memo[(i, j)] = ans 
+        return ans 
+    return dp(0, 0)
+```
+
+## 五、重叠子问题定性判断
+
+有的读者也许会问，你怎么知道这个问题是个动态规划问题呢，你怎么知道它就存在「重叠⼦问题」呢，这似乎不容易看出来呀？
+
+解答这个问题，最直观的应该是随便假设⼀个输⼊，然后画递归树，肯定是可以发现相同节点的。这属于定量分析。
+
+其实不⽤这么⿇烦，下⾯我来教你定性分析，⼀眼就能看出「重叠⼦问题」性质。
+
+先拿最简单的斐波那契数列举例，我们抽象出递归算法的框架：
+
+```python
+def fib(n): 
+    fib(n - 1) #1 
+    fib(n - 2) #2
+```
+
+看着这个框架，请问原问题 f\(n\) 如何触达⼦问题 f\(n - 2\) ？有两种路径，⼀ 是 f\(n\) -&gt; \#1 -&gt; \#1, ⼆是 f\(n\) -&gt; \#2。前者经过两次递归，后者进过⼀次递归⽽已。**两条不同的计算路径都到达了同⼀个问题，这就是「重叠⼦问题」。**
+
+ ⽽且可以肯定的是，只要你发现⼀条重复路径，这样的重复路径⼀定存在千 万条，意味着巨量⼦问题重叠。
 
