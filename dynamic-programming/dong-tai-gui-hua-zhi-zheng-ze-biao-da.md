@@ -223,3 +223,43 @@ def dp(i, j):
 
 回顾整个解题过程，你应该能够体会到算法设计的流程：从简单的类似问题 ⼊⼿，给基本的框架逐渐组装新的逻辑，最终成为⼀个⽐较复杂、精巧的算 法。所以说，读者不必畏惧⼀些⽐较复杂的算法问题，多思考多类⽐，再⾼ ⼤上的算法在你眼⾥也不过⼀个脆⽪。
 
+### c++代码
+
+```cpp
+typedef map<pair<int,int>,bool> pmap;
+class Solution {
+    pmap dict;// 备忘录 
+    /*也可以使用vector<vector<int> > dict(ns,vector<int>(np,-1));
+    0  表示 false
+    1  表示 true
+    -1 表示没有遍历到*/
+public:
+    bool isMatch(string s, string p) {
+        return dp(s,p,0,0);
+    }
+
+    bool dp(string s, string p,int i, int j){
+        int ns = s.length();
+        int np = p.length();
+        bool ans;
+        pmap::iterator it = std::find_if(
+            dict.begin(),dict.end(),[=](const pair<pair<int,int>,bool> && a){
+                pair<int,int> location = a.first;
+                return location.first == i && location.second == j;
+            });
+        if(it != dict.end()) return it->second; //在备忘录里，直接返回
+
+        if(j==np) return i ==ns;
+        bool first = i<ns && (p[j]==s[i] || p[j]=='.'); //匹配当前
+        if(j<=np - 2 && p[j+1]=='*'){  //发现'*'
+            ans = dp(s,p,i,j+2) //'*'匹配0个
+            || (first&&dp(s,p,i+1,j));    //'*'匹配一个    
+        }else{
+            ans = first && dp(s,p,i+1,j+1); //没有'*'，都往后挪一个
+        }
+        dict.insert(make_pair(make_pair(i,j),ans));
+        return ans;
+    }
+};
+```
+
