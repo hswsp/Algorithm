@@ -57,9 +57,7 @@ def isMatch(text, pattern) -> bool:
 
 ## 三、处理「\*」通配符
 
-星号通配符可以让前⼀个字符重复任意次数，包括零次。那到底是重复⼏次 呢？
-
-这似乎有点困难，不过不要着急，我们起码可以把框架的搭建再进⼀ 步：
+星号通配符可以让前⼀个字符重复任意次数，包括零次。那到底是重复⼏次 呢？这似乎有点困难，不过不要着急，我们起码可以把框架的搭建再进⼀ 步：
 
 ```python
 def isMatch(text, pattern) -> bool: 
@@ -69,5 +67,18 @@ def isMatch(text, pattern) -> bool:
         # 发现 '*' 通配符 
     else:
         return first_match and isMatch(text[1:], pattern[1:])
+```
+
+星号前⾯的那个字符到底要重复⼏次呢？这需要计算机暴⼒穷举来算，假设重复 N 次吧。
+
+前⽂多次强调过，**写递归的技巧是管好当下**，**之后的事抛给递归**。具体到这⾥，不管 N 是多少，当前的选择只有两个：匹配 0 次、匹 配 1 次。所以可以这样处理：
+
+```python
+if len(pattern) >= 2 and pattern[1] == '*': 
+    return isMatch(text, pattern[2:]) or \ 
+        first_match and isMatch(text[1:], pattern) 
+# 解释：如果发现有字符和 '*' 结合， 
+# 或者匹配该字符 0 次，然后跳过该字符和 '*' 
+# 或者当 pattern[0] 和 text[0] 匹配后，移动 text
 ```
 
