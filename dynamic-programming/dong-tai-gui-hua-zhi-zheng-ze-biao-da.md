@@ -44,5 +44,30 @@ def isMatch(text, pattern) -> bool:
     return first_match and isMatch(text[1:], pattern[1:])
 ```
 
+## ⼆、处理点号「.」通配符
 
+点号可以匹配任意⼀个字符，稍加改造即可：
+
+```python
+def isMatch(text, pattern) -> bool: 
+    if not pattern: return not text 
+    first_match = bool(text) and pattern[0] in {text[0], '.'} 
+    return first_match and isMatch(text[1:], pattern[1:])
+```
+
+## 三、处理「\*」通配符
+
+星号通配符可以让前⼀个字符重复任意次数，包括零次。那到底是重复⼏次 呢？
+
+这似乎有点困难，不过不要着急，我们起码可以把框架的搭建再进⼀ 步：
+
+```python
+def isMatch(text, pattern) -> bool: 
+    if not pattern: return not text 
+    first_match = bool(text) and pattern[0] in {text[0], '.'} 
+    if len(pattern) >= 2 and pattern[1] == '*': 
+        # 发现 '*' 通配符 
+    else:
+        return first_match and isMatch(text[1:], pattern[1:])
+```
 
