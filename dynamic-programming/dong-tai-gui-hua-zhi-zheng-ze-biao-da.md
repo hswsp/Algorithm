@@ -44,6 +44,8 @@ def isMatch(text, pattern) -> bool:
     return first_match and isMatch(text[1:], pattern[1:])
 ```
 
+
+
 ## ⼆、处理点号「.」通配符
 
 点号可以匹配任意⼀个字符，稍加改造即可：
