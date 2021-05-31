@@ -6,6 +6,7 @@
 
 * [Trie树（字典树，单词查找树）](datastructure/trie-shu-zi-dian-shu-dan-ci-cha-zhao-shu.md)
 * [双指针算法](datastructure/shuang-zhi-zhen-suan-fa.md)
+* [双指针应用+递归——NSum问题](datastructure/shuang-zhi-zhen-ying-yong-+-di-gui-nsum-wen-ti.md)
 
 ## Dynamic Programming
 

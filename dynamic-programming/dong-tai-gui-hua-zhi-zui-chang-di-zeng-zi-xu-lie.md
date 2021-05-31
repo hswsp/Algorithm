@@ -6,7 +6,7 @@
 
 先看一下题目，LeetCode 第 300 题就是：
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 注意「子序列」和「子串」这两个名词的区别，子串一定是连续的，而子序列不一定是连续的。下面先来设计动态规划算法解决这个问题。
 
@@ -28,9 +28,9 @@ PS：为什么这样定义呢？这是解决子序列问题的一个套路，后
 
 举两个例子：
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](../.gitbook/assets/image%20%2845%29.png)
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](../.gitbook/assets/image%20%2852%29.png)
 
 算法演进的过程是这样的：
 
@@ -52,7 +52,7 @@ return res;
 
 **假设我们已经知道了 `dp[0..4]` 的所有结果，我们如何通过这些已知结果推出 `dp[5]` 呢**？
 
-![](../.gitbook/assets/image%20%2841%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
 根据刚才我们对 `dp` 数组的定义，现在想求 `dp[5]` 的值，也就是想求以 `nums[5]` 为结尾的最长递增子序列。
 
@@ -122,7 +122,7 @@ public int lengthOfLIS(int[] nums) {
 
 首先，给你一排扑克牌，我们像遍历数组那样从左到右一张一张处理这些扑克牌，最终要把这些牌分成若干堆。
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2837%29.png)
 
 **处理这些扑克牌要遵循以下规则**：
 
@@ -130,11 +130,11 @@ public int lengthOfLIS(int[] nums) {
 
 比如说上述的扑克牌最终会被分成这样 5 堆（我们认为纸牌 A 的牌面是最大的，纸牌 2 的牌面是最小的）。
 
-![](../.gitbook/assets/image%20%2848%29.png)
+![](../.gitbook/assets/image%20%2850%29.png)
 
 为什么遇到多个可选择堆的时候要放到最左边的堆上呢？稍加观察可以发现，**这样可以保证牌堆顶的牌有序**（2, 4, 7, 8, Q）。
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 按照上述规则执行，可以算出最长递增子序列，牌的堆数就是最长递增子序列的长度。
 
