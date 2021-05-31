@@ -1,4 +1,4 @@
-# 经典动态规划：打家劫舍系列问题
+# 动态规划之打家劫舍系列问题
 
 > 转自[算法目录](https://mp.weixin.qq.com/s/AWsL7G89RtaHyHjRPNJENA)
 
