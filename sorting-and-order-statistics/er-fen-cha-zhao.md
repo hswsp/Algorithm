@@ -139,7 +139,7 @@ PS：这里先要说一个搜索左右边界和上面这个算法的一个区别
 
 答：因为要一步一步来，先理解一下这个「左侧边界」有什么特殊含义：
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 对于这个数组，算法会返回 1。这个 1 的含义可以这样解读：`nums`中小于 2 的元素有 1 个。
 
@@ -211,7 +211,7 @@ if (nums[mid] < target) {
 
 由于 while 的退出条件是`left == right + 1`，所以当`target`比`nums`中所有元素都大时，会存在以下情况使得索引越界：
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 因此，最后返回结果的代码应该检查越界情况：
 
@@ -295,7 +295,7 @@ if (nums[mid] == target) {
     // 这样想: mid = left - 1
 ```
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2851%29.png)
 
 因为我们对`left`的更新必须是`left = mid + 1`，就是说 while 循环结束时，`nums[left]`一定不等于`target`了，而`nums[left-1]`可能是`target`。
 
@@ -340,7 +340,7 @@ int right_bound(int[] nums, int target) {
 
 当`target`比所有元素都小时，`right`会被减到 -1，所以需要在最后防止越界：
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 至此，搜索右侧边界的二分查找的两种写法也完成了，其实将「搜索区间」统一成两端都闭反而更容易记忆，你说是吧？
 
