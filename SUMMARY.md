@@ -12,6 +12,7 @@
 * [经典动态规划：打家劫舍系列问题](dynamic-programming/da-jia-jie-she-xi-lie-wen-ti.md)
 * [动态规划之正则表达](dynamic-programming/dong-tai-gui-hua-zhi-zheng-ze-biao-da.md)
 * [动态规划之四键键盘](dynamic-programming/dong-tai-gui-hua-zhi-si-jian-jian-pan.md)
+* [动态规划之最长递增子序列](dynamic-programming/dong-tai-gui-hua-zhi-zui-chang-di-zeng-zi-xu-lie.md)
 
 ## Sorting and Order Statistics
 
