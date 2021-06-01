@@ -33,7 +33,7 @@ int solve()
 }
 ```
 
-### 列题说明
+## 列题说明
 
 #### Leetcode 64 minimum path sum
 
@@ -47,7 +47,7 @@ Note: You can only move either down or right at any point in time.
 
 Output: 7 Explanation: Because the path 1→3→1→1→1 minimizes the sum.
 
-**1.记忆搜索**
+### **记忆搜索格式**
 
 ```cpp
 int dp[550][550]
@@ -65,7 +65,7 @@ int dfs(int x, int y)
 }
 ```
 
-**2. 递推表示**
+### **递推表示**
 
 ```cpp
    int minpathsum(vector<vector<int>>& grid)
