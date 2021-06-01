@@ -33,7 +33,7 @@ int solve()
 }
 ```
 
-### 一些列题
+### 列题说明
 
 #### Leetcode 64 minimum path sum
 
