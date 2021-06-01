@@ -33,6 +33,25 @@ int solve()
 }
 ```
 
+**dp 数组的迭代格式**
+
+```cpp
+int solve(nputs，{
+    vector<int> dp(状态);
+    // base case
+    dp[0] = 0;
+    for (int i = 0; i < dp.size(); i++) {
+        // 内层 for 在求所有子问题 + 1 的最小值
+        for (int coin : coins) {
+            // 子问题无解，跳过
+            if (i - coin < 0) continue;
+            dp[i] = min(dp[i], 1 + dp[i - coin]);
+        }
+    }
+    return (dp[amount] == amount + 1) ? -1 : dp[amount];
+}
+```
+
 ## 列题说明
 
 #### Leetcode 64 minimum path sum
