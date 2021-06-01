@@ -33,6 +33,66 @@ int solve()
 }
 ```
 
+### 一些列题
+
+#### Leetcode 64 minimum path sum
+
+Given a m x n grid filled with non-negative numbers, find a path from top left to bottom right which minimizes the sum of all numbers along its path.
+
+Note: You can only move either down or right at any point in time.
+
+> Example:
+>
+> Input: \[ \[1,3,1\], \[1,5,1\], \[4,2,1\] \]
+
+Output: 7 Explanation: Because the path 1→3→1→1→1 minimizes the sum.
+
+**1.记忆搜索**
+
+```cpp
+int dp[550][550]
+vector<vector<int>> grid;
+
+int dfs(int x, int y)
+{
+    if(x==0&& y==0) return grid[0][0];
+    if(x<0 || y<0) return INT_MAX;
+    if(dp[x][y]!=-1) return dp[x][y];
+
+    dp[x][y] = min(dfs(x-1,y),dfs(x,y-1))+grid[x][y];
+
+    return dp[x][y]；
+}
+```
+
+**2. 递推表示**
+
+```cpp
+   int minpathsum(vector<vector<int>>& grid)
+   {
+       int n = grid.size(),m = grid[0].size();
+       int dp[n][m] = 0;
+       //边界
+       dp[0][0] = grid[0][0];
+       for(int i = 1;i<n;i++) dp[i][0] = dp[i-1][0]+grid[i][0];
+       for(int j=0;j<m;j++) dp[0][j] = dp[0][j-1]+grid[0][j];
+       //状态转移
+       for(i=0;i<n;++i)
+           for(j = 0;j<m;++j)
+               dp[i][j] = min(dp[i-1][j],dp[i][j-1])+grid[i][j];
+   }
+```
+
+#### **注：最大公约数**
+
+```cpp
+int gcd(a,b)
+{
+    if(b==0) return a;
+    else return gcd(b,a%b);
+}
+```
+
 ## 最优子结构详解
 
 「最优子结构」是某些问题的一种特定性质，并不是动态规划问题专有的。也就是说，很多问题其实都具有最优子结构，只是其中大部分不具有重叠子问题，所以我们不把它们归为动态规划系列问题而已。
