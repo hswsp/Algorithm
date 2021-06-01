@@ -33,7 +33,7 @@ int solve()
 }
 ```
 
-**dp 数组的迭代格式** 
+### **dp 数组的迭代格式** 
 
 ```cpp
 int solve(inputs,状态) {
