@@ -71,7 +71,7 @@ vector<vector<int>> twoSumTarget(vector<int>& nums, int target {
 
 出问题的地方在于 `sum == target` 条件的 if 分支，当给 `res` 加入一次结果后，`lo` 和 `hi` 不应该改变 1 的同时，还应该跳过所有重复的元素：
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
 所以，可以对双指针的 while 循环做出如下修改：
 
@@ -124,7 +124,7 @@ vector<vector<int>> twoSumTarget(vector<int>& nums, int target) {
 
 这是力扣第 15 题「三数之和」：
 
-![](../.gitbook/assets/image%20%2853%29.png)
+![](../.gitbook/assets/image%20%2857%29.png)
 
 题目就是让我们找 `nums` 中和为 0 的三个元素，返回所有可能的三元组（triple），函数签名如下：
 
@@ -198,7 +198,7 @@ vector<vector<int>> threeSumTarget(vector<int>& nums, int target) {
 
 这是力扣第 18 题「四数之和」：
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 函数签名如下：
 

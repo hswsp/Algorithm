@@ -26,7 +26,7 @@ boolean hasCycle(ListNode head) {
 
 **2、已知链表中含有环，返回这个环的起始位置**
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](../.gitbook/assets/image%20%2853%29.png)
 
 这个问题一点都不困难，有点类似脑筋急转弯，先直接看代码：
 
@@ -53,13 +53,13 @@ ListNode detectCycle(ListNode head) {
 
 第一次相遇时，假设慢指针`slow`走了`k`步，那么快指针`fast`一定走了`2k`步：
 
-![](../.gitbook/assets/image%20%2851%29.png)
+![](../.gitbook/assets/image%20%2855%29.png)
 
 **`fast`一定比`slow`多走了`k`步，这多走的`k`步其实就是`fast`指针在环里转圈圈，所以`k`的值就是环长度的「整数倍」**。
 
 说句题外话，之前还有读者争论为什么是环长度整数倍，我举个简单的例子你就明白了，我们想一想极端情况，假设环长度就是 1，如下图：
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 那么`fast`肯定早早就进环里转圈圈了，而且肯定会转好多圈，这不就是环长度的整数倍嘛。
 
@@ -67,7 +67,7 @@ ListNode detectCycle(ListNode head) {
 
 巧的是，如果从相遇点继续前进`k - m`步，也恰好到达环起点。你甭管`fast`在环里到底转了几圈，反正走`k`步可以到相遇点，那走`k - m`步一定就是走到环起点了：
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 所以，只要我们把快慢指针中的任一个重新指向`head`，然后两个指针同速前进，`k - m`步后就会相遇，相遇之处就是环的起点了。
 
@@ -92,7 +92,7 @@ ListNode middleNode(ListNode head) {
 
 当链表的长度是奇数时，`slow`恰巧停在中点位置；如果长度是偶数，`slow`最终的位置是中间偏右：
 
-![](../.gitbook/assets/image%20%2823%29.png)
+![](../.gitbook/assets/image%20%2824%29.png)
 
 寻找链表中点的一个重要作用是对链表进行归并排序。
 
@@ -104,7 +104,7 @@ ListNode middleNode(ListNode head) {
 
 这是力扣第 19 题「删除链表的倒数第`n`个元素」，先看下题目：
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2834%29.png)
 
 我们的思路还是使用快慢指针，让快指针先走`n`步，然后快慢指针开始同速前进。这样当快指针走到链表末尾`null`时，慢指针所在的位置就是倒数第`n`个链表节点（`n`不会超过链表长度）。
 
@@ -163,7 +163,7 @@ int binarySearch(int[] nums, int target) {
 
 直接看力扣第 167 题「两数之和 II」吧：
 
-![](../.gitbook/assets/image%20%2839%29.png)
+![](../.gitbook/assets/image%20%2841%29.png)
 
 只要数组有序，就应该想到双指针技巧。这道题的解法有点类似二分查找，通过调节`left`和`right`可以调整`sum`的大小：
 
@@ -248,7 +248,7 @@ void slidingWindow(string s, string t) {
 
 LeetCode 76 题，Minimum Window Substring，难度 **Hard**，我带大家看看它到底有多 **Hard**：
 
-![](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2823%29.png)
 
 就是说要在`S`\(source\) 中找到包含`T`\(target\) 中全部字母的一个子串，且这个子串一定是所有可能子串中最短的。
 
@@ -279,11 +279,11 @@ _**4、**_重复第 2 和第 3 步，直到`right`到达字符串`S`的尽头。
 
 初始状态：
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
 增加`right`，直到窗口`[left, right)`包含了`T`中所有字符：
 
-![](../.gitbook/assets/image%20%2837%29.png)
+![](../.gitbook/assets/image%20%2839%29.png)
 
 现在开始增加`left`，缩小窗口`[left, right)`。
 
@@ -291,7 +291,7 @@ _**4、**_重复第 2 和第 3 步，直到`right`到达字符串`S`的尽头。
 
 直到窗口中的字符串不再符合要求，`left`不再继续移动。
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 之后重复上述过程，先移动`right`，再移动`left`…… 直到`right`指针到达字符串`S`的末端，算法结束。
 
@@ -448,7 +448,7 @@ bool checkInclusion(string t, string s) {
 
 这是 LeetCode 第 438 题，Find All Anagrams in a String，难度 Medium：
 
-![](../.gitbook/assets/image%20%2857%29.png)
+![](../.gitbook/assets/image%20%2862%29.png)
 
 呵呵，这个所谓的字母异位词，不就是排列吗，搞个高端的说法就能糊弄人了吗？**相当于，输入一个串`S`，一个串`T`，找到`S`中所有`T`的排列，返回它们的起始索引**。
 
@@ -496,7 +496,7 @@ vector<int> findAnagrams(string s, string t) {
 
 这是 LeetCode 第 3 题，Longest Substring Without Repeating Characters，难度 Medium：
 
-![](../.gitbook/assets/image%20%2846%29.png)
+![](../.gitbook/assets/image%20%2849%29.png)
 
 这个题终于有了点新意，不是一套框架就出答案，不过反而更简单了，稍微改一改框架就行了：
 
