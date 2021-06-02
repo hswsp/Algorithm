@@ -25,8 +25,8 @@
 
 ## Sorting and Order Statistics
 
-* [外部排序 - 基于堆排序\(最大堆\)+最大赢者树](sorting-and-order-statistics/externalsorting.md)
 * [二分查找](sorting-and-order-statistics/er-fen-cha-zhao.md)
+* [外部排序 - 基于堆排序\(最大堆\)+最大赢者树](sorting-and-order-statistics/externalsorting.md)
 
 ## Applications
 
