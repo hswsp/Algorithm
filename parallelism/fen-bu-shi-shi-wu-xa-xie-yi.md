@@ -1,3 +1,7 @@
+---
+description: '转载自 https://www.cnblogs.com/monkeyblog/p/10449363.html'
+---
+
 # 分布式事务，XA协议
 
 XA分布式事务协议，包含**二阶段提交（2PC），三阶段提交（3PC）**两种实现。
