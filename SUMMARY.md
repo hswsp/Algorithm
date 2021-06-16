@@ -16,6 +16,7 @@
 * [回溯算法：从电影《蝴蝶效应》中学习回溯算法的核心思想](hui-su-suan-fa-cong-dian-ying-hu-die-xiao-ying-zhong-xue-xi-hui-su-suan-fa-de-he-xin-si-xiang.md)
 * [回溯算法详解](hui-su-suan-fa-xiang-jie.md)
 * [回溯算法团灭排列/组合/子集问题](hui-su-suan-fa-tuan-mie-pai-lie-zu-he-zi-ji-wen-ti.md)
+* [回溯算法最佳实践——解数独](hui-su-suan-fa-zui-jia-shi-jian-jie-shu-du.md)
 
 ## Dynamic Programming
 
