@@ -38,7 +38,7 @@ n 个元素进栈序列为：1，2，3，4，...，n，则有多少种出栈序�
 
 ![img](https://pic3.zhimg.com/80/v2-1224b08274913efa2cd7dbb31f8e6262_1440w.jpg)
 
-每个 B 都有 n + 1 个 +1 以及 n - 1 个 -1，因此 B 的数量为 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%2B1%7D) ，相当于在长度为 2n 的序列中找到`n + 1`个位置存放 +1。相应的，非法序列的数量也就等于 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%2B1%7D) 。
+每个 B 都有 n + 1 个 +1 以及 n - 1 个 -1，因此 B 的数量为 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%2B1%7D) ，相当于在长度为 2n 的序列中找到`n + 1`个位置存放 +1。相应的，**非法序列的数量也就等于** ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%2B1%7D) ****。
 
 出栈序列的总数量共有 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%7D) ，因此，合法的出栈序列的数量为 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7B2n%7D%5E%7Bn%7D+-+C_%7B2n%7D%5E%7Bn%2B1%7D+%3D+%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+%2B+1%7D) 。
 
