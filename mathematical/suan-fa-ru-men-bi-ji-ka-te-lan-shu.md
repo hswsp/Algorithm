@@ -94,7 +94,7 @@ n 对括号，则有多少种 “括号匹配” 的括号序列
 
 ## **三、解题模板**
 
-最后我们需要来计算一下卡特兰数的通项 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7Bn%7D+%3D+%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+%2B+1%7D)
+最后我们需要来计算一下卡特兰数的通项 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7Bn%7D+%3D+%5Cfrac%7BC_%7B2n%7D%5En%7D%7Bn+%2B+1%7D)（这里 $$C_n$$ 应该写成 $$a_n$$ \)
 
 卡特兰数满足以下递推式：
 
