@@ -133,7 +133,7 @@ for i in range(2, n + 1):
     print(str(i) + ":" + str(ans))
 ```
 
-需要注意的是，由于卡特兰数增长速度较快，当 n 等于 17 时，卡特兰数将会超过 int 最大值，造成溢出（Python 除外）。对于 Java 语言来说，可以使用 BigInteger 来计算大整数。
+需要注意的是，由于卡特兰数增长速度较快，当 n 等于 17 时，卡特兰数将会超过 int 最大值，造成溢出（Python 除外）。**对于 Java 语言来说，可以使用 BigInteger 来计算大整数**。
 
 那如果 +1 的数量不等于 -1 的数量呢，如前面提到的电影购票问题。此时 ![\[&#x516C;&#x5F0F;\]](https://www.zhihu.com/equation?tex=C_%7Bn%7D%3DC_%7Bm%2Bn%7D%5E%7Bm%7D-C_%7Bm%2Bn%7D%5E%7Bm%2B1%7D) ，不是卡特兰数的通项，也就不能够继续使用原有的递推性质。
 
