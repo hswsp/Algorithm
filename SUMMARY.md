@@ -17,6 +17,7 @@
 * [回溯算法详解](hui-su-suan-fa-xiang-jie.md)
 * [回溯算法团灭排列/组合/子集问题](hui-su-suan-fa-tuan-mie-pai-lie-zu-he-zi-ji-wen-ti.md)
 * [回溯算法最佳实践——解数独](hui-su-suan-fa-zui-jia-shi-jian-jie-shu-du.md)
+* [回溯算法最佳实践——合法括号生成](hui-su-suan-fa-zui-jia-shi-jian-he-fa-kuo-hao-sheng-cheng.md)
 
 ## Dynamic Programming
 

@@ -132,7 +132,7 @@ vector<vector<int>> combine(int n, int k);
 
 这就是典型的回溯算法，`k` 限制了树的高度，`n` 限制了树的宽度，直接套我们以前讲过的回溯算法模板框架就行了：
 
-![](.gitbook/assets/image%20%2879%29.png)
+![](.gitbook/assets/image%20%2880%29.png)
 
 ```cpp
 vector<vector<int>>res;
