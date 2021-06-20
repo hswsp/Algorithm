@@ -44,7 +44,7 @@
 * [接口的幂等性怎么设计？](parallelism/jie-kou-de-mi-deng-xing-zen-me-she-ji.md)
 * [分布式 id 生成算法-SnowFlake 算法](parallelism/fen-bu-shi-id-sheng-cheng-suan-fa-snowflake-suan-fa.md)
 * [分布式事务详解](parallelism/fen-bu-shi-shi-wu-xiang-jie.md)
-* [分布式事务，XA协议](parallelism/fen-bu-shi-shi-wu-xa-xie-yi.md)
+* [常见分布式事务解决方案](parallelism/fen-bu-shi-shi-wu-xa-xie-yi.md)
 
 ## Mathematical
 
