@@ -19,6 +19,7 @@
 * [回溯算法最佳实践——解数独](hui-su-suan-fa-zui-jia-shi-jian-jie-shu-du.md)
 * [回溯算法最佳实践——合法括号生成](hui-su-suan-fa-zui-jia-shi-jian-he-fa-kuo-hao-sheng-cheng.md)
 * [BFS 算法框架详解](bfs-suan-fa-kuang-jia-xiang-jie.md)
+* [益智游戏克星：BFS暴力搜索算法](yi-zhi-you-xi-ke-xing-bfs-bao-li-sou-suo-suan-fa.md)
 
 ## Dynamic Programming
 

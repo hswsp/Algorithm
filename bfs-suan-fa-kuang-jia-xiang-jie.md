@@ -24,7 +24,7 @@ BFS 相对 DFS 的最主要的区别是：**BFS 找到的路径一定是最短�
 
 净整些花里胡哨的，这些问题都没啥奇技淫巧，本质上就是一幅「图」，让你从一个起点，走到终点，问最短路径。这就是 BFS 的本质，框架搞清楚了直接默写就好。
 
-![](.gitbook/assets/image%20%2882%29.png)
+![](.gitbook/assets/image%20%2884%29.png)
 
 记住下面这个框架就 OK 了：
 
@@ -65,7 +65,7 @@ int BFS(Node start, Node target) {
 
 先来个简单的问题实践一下 BFS 框架吧，判断一棵二叉树的**最小**高度，这也是 LeetCode 第 111 题，看一下题目：
 
-![](.gitbook/assets/image%20%2885%29.png)
+![](.gitbook/assets/image%20%2888%29.png)
 
 怎么套到 BFS 的框架里呢？首先明确一下起点`start`和终点`target`是什么，怎么判断到达了终点？
 
@@ -137,7 +137,7 @@ BFS 可以找到最短距离，但是**空间复杂度高**，而 DFS 的空间�
 
 这道 LeetCode 题目是第 752 题，比较有意思：
 
-![](.gitbook/assets/image%20%2883%29.png)
+![](.gitbook/assets/image%20%2886%29.png)
 
 题目中描述的就是我们生活中常见的那种密码锁，若果没有任何约束，最少的拨动次数很好算，就像我们平时开密码锁那样直奔密码拨就行了。
 
@@ -267,9 +267,9 @@ int openLock(String[] deadends, String target) {
 
 为什么这样能够能够提升效率呢？其实从 Big O 表示法分析算法复杂度的话，它俩的最坏复杂度都是`O(N)`，但是实际上双向 BFS 确实会快一些，我给你画两张图看一眼就明白了：
 
-![](.gitbook/assets/image%20%2881%29.png)
+![](.gitbook/assets/image%20%2882%29.png)
 
-![](.gitbook/assets/image%20%2884%29.png)
+![](.gitbook/assets/image%20%2887%29.png)
 
 图示中的树形结构，如果终点在最底部，按照传统 BFS 算法的策略，会把整棵树的节点都搜索一遍，最后找到`target`；而双向 BFS 其实只遍历了半棵树就出现了交集，也就是找到了最短距离。从这个例子可以直观地感受到，双向 BFS 是要比传统 BFS 高效的。
 
