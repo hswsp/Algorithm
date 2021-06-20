@@ -259,7 +259,7 @@ int openLock(String[] deadends, String target) {
 
 至此，我们就解决这道题目了。有一个比较小的优化：可以不需要`dead`这个哈希集合，可以直接将这些元素初始化到`visited`集合中，效果是一样的，可能更加优雅一些。
 
-## 四、双向 BFS 优化
+## 四-1、双向 BFS 优化
 
 你以为到这里 BFS 算法就结束了？恰恰相反。BFS 算法还有一种稍微高级一点的优化思路：**双向 BFS**，可以进一步提高算法的效率。
 
@@ -345,4 +345,57 @@ while (!q1.isEmpty() && !q2.isEmpty()) {
 因为按照 BFS 的逻辑，队列（集合）中的元素越多，扩散之后新的队列（集合）中的元素就越多；在双向 BFS 算法中，如果我们**每次都选择一个较小的集合进行扩散**，那么占用的空间增长速度就会慢一些，效率就会高一些。
 
 不过话说回来，**无论传统 BFS 还是双向 BFS，无论做不做优化，从 Big O 衡量标准来看，空间复杂度都是一样的**，只能说双向 BFS 是一种 trick 吧，掌握不掌握其实都无所谓。最关键的是把 BFS 通用框架记下来，反正所有 BFS 算法都可以用它套出解法。
+
+## 四-2、双向DFS优化
+
+DFS和BFS同理，也可以通过双向查询简化搜索空间。
+
+### 题目
+
+> **洛谷 P4799 世界冰球锦标赛** [https://www.luogu.com.cn/problem/P4799](https://www.luogu.com.cn/problem/P4799)
+
+今年的世界冰球锦标赛在捷克举行。Bobek 已经抵达布拉格，他不是任何团队的粉丝，也没有时间观念。他只是单纯的想去看几场比赛。如果他有足够的钱，他会去看所有的比赛。不幸的是，他的财产十分有限，他决定把所有财产都用来买门票。 给出 Bobek 的预算和每场比赛的票价，试求：如果总票价不超过预算，他有多少种观赛方案。如果存在以其中一种方案观看某场比赛而另一种方案不观看，则认为这两种方案不同。 输入第一行，两个正整数 _N_ 和 _M_ \(\)，表示比赛的个数和 Bobek 那家徒四壁的财产。 输入第二行，_N_ 个以空格分隔的正整数，均不超过，代表每场比赛门票的价格。 输出一行，表示方案的个数。由于 _N_ 十分大，注意：答案 
+
+### Meet in the Middle
+
+这道题目的 _M_ 太大了，没有什么好的做法，只能通过 DFS 进行枚举，求得最终合法的方案数。 但是这里的 _N_ 也有点大，达到了 40，直接枚举的话有 中情况，一定会超时，这时候可以考虑一个 DFS 的技巧叫做 Meet in the Middle，也就是我们从起点开始搜索 2020 个，从终点往前搜索 2020 个，然后在中间合并搜索的结果，这样搜索空间的大小就是 ，就可以接受了。合并两侧搜索结果的时候，我们通常将两个 DFS 的结果存在数组里，然后通过二分将两个数组里的状态关联起来。
+
+dfs函数中`v`是目前所花钱的总数，数组`sum`表示按照目前方案的花钱总额，cnt是`sum`数组总个数，也是目前方案看球的总场数。
+
+```cpp
+#include <cstdio>
+#include <algorithm>
+using namespace std;
+
+#define LL long long
+const int MAXN = 45;
+const int MAXM = 1<<21;
+LL M, price[55], pre[MAXM], suf[MAXM];
+
+
+void dfs(int l, int r, LL v, LL sum[], int &cnt){
+    if (l > r) { sum[cnt++] = v; return; }
+    dfs(l + 1, r, v, sum, cnt);
+    dfs(l + 1, r, v + price[l], sum, cnt);
+}
+
+int main(){
+    int n, a = 0, b = 0;
+
+    scanf("%d%lld", &n, &M);
+    for (int i = 1; i <= n; i++) scanf("%lld", &price[i]);
+
+    dfs(1, n / 2, 0, pre, a);
+    dfs(n / 2 + 1, n, 0, suf, b);
+
+    sort(suf, suf + b);
+
+    LL ans = 0;
+    for (int i = 0; i < a; i++)
+        ans += upper_bound(suf, suf + b, M - pre[i]) - suf;
+
+    printf("%lld\n", ans);
+    return 0;
+}
+```
 
