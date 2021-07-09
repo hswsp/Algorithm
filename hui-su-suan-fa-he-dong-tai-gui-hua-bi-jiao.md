@@ -193,7 +193,7 @@ int dp(int[] nums, int i, int rest) {
 
 首先，如果我们把 `nums` 划分成两个子集 `A` 和 `B`，分别代表分配 `+` 的数和分配 `-` 的数，那么他们和 `target` 存在如下关系：
 
-```text
+```cpp
 sum(A) - sum(B) = target
 sum(A) = target + sum(B)
 sum(A) + sum(A) = target + sum(B) + sum(A)
