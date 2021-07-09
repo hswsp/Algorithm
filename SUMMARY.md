@@ -28,6 +28,7 @@
 * [动态规划之正则表达](dynamic-programming/dong-tai-gui-hua-zhi-zheng-ze-biao-da.md)
 * [动态规划之四键键盘](dynamic-programming/dong-tai-gui-hua-zhi-si-jian-jian-pan.md)
 * [动态规划之最长递增子序列](dynamic-programming/dong-tai-gui-hua-zhi-zui-chang-di-zeng-zi-xu-lie.md)
+* [经典动态规划：0-1 背包问题](dynamic-programming/jing-dian-dong-tai-gui-hua-01-bei-bao-wen-ti.md)
 * [经典动态规划：0-1背包问题的变体](dynamic-programming/jing-dian-dong-tai-gui-hua-01-bei-bao-wen-ti-de-bian-ti.md)
 
 ## Sorting and Order Statistics
