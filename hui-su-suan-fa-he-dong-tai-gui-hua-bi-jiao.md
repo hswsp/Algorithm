@@ -12,3 +12,175 @@
 
 ![](.gitbook/assets/image%20%2892%29.png)
 
+注意，给出的例子 `nums` 全是 1，但实际上可以是任意正整数哦。
+
+## 一、回溯思路
+
+任何算法的核心都是穷举，回溯算法就是一个暴力穷举算法，前文回溯算法详解就写了回溯算法框架：
+
+```python
+def backtrack(路径, 选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径, 选择列表)
+        撤销选择
+```
+
+关键就是搞清楚什么是「选择」，而对于这道题，「选择」不是明摆着的吗？
+
+**对于每个数字 `nums[i]`，我们可以选择给一个正号 `+` 或者一个负号 `-`**，然后利用回溯模板穷举出来所有可能的结果，数一数到底有几种组合能够凑出 `target` 不就行了嘛？
+
+伪码思路如下：
+
+```python
+def backtrack(nums, i):
+    if i == len(nums):
+        if 达到 target:
+            result += 1
+        return
+
+    for op in { +1, -1 }:
+        选择 op * nums[i]
+        # 穷举 nums[i + 1] 的选择
+        backtrack(nums, i + 1)
+        撤销选择
+```
+
+如果看过我们之前的几篇回溯算法文章，这个代码可以说是比较简单的了：
+
+```cpp
+int result = 0;
+
+/* 主函数 */
+int findTargetSumWays(int[] nums, int target) {
+    if (nums.length == 0) return 0;
+    backtrack(nums, 0, target);
+    return result;
+}
+
+/* 回溯算法模板 */
+void backtrack(int[] nums, int i, int rest) {
+    // base case
+    if (i == nums.length) {
+        if (rest == 0) {
+            // 说明恰好凑出 target
+            result++;
+        }
+        return;
+    }
+    // 给 nums[i] 选择 - 号
+    rest += nums[i];
+    // 穷举 nums[i + 1]
+    backtrack(nums, i + 1, rest);
+    // 撤销选择
+    rest -= nums[i]; 
+
+    // 给 nums[i] 选择 + 号
+    rest -= nums[i];
+    // 穷举 nums[i + 1]
+    backtrack(nums, i + 1, rest);
+    // 撤销选择
+    rest += nums[i];
+}
+```
+
+有的读者可能问，选择 `-` 的时候，为什么是 `rest += nums[i]`，选择 `+` 的时候，为什么是 `rest -= nums[i]` 呢，是不是写反了？
+
+不是的，「如何凑出 `target`」和「如何把 `target` 减到 0」其实是一样的。我们这里选择后者，因为前者必须给 `backtrack` 函数多加一个参数，我觉得不美观：
+
+```cpp
+void backtrack(int[] nums, int i, int sum, int target) {
+    // base case
+    if (i == nums.length) {
+        if (sum == target) {
+            result++;
+        }
+        return;
+    }
+    // ...
+}
+```
+
+因此，如果我们给 `nums[i]` 选择 `+` 号，就要让 `rest - nums[i]`，反之亦然。
+
+以上回溯算法可以解决这个问题，时间复杂度为 `O(2^N)`，`N` 为 `nums` 的大小。这个复杂度怎么算的？这个回溯算法就是个二叉树的遍历问题：
+
+```cpp
+void backtrack(int[] nums, int i, int rest) {
+    if (i == nums.length) {
+        return;
+    }
+    backtrack(nums, i + 1, rest - nums[i]);
+    backtrack(nums, i + 1, rest + nums[i]);
+}
+```
+
+树的高度就是 `nums` 的长度嘛，所以说时间复杂度就是这棵二叉树的节点数，为 `O(2^N)`，其实是非常低效的。
+
+那么，这个问题如何用动态规划思想进行优化呢？
+
+## 二、消除重叠子问题
+
+动态规划之所以比暴力算法快，是因为动态规划技巧消除了重叠子问题。
+
+如何发现重叠子问题？看是否可能出现重复的「状态」。对于递归函数来说，函数参数中会变的参数就是「状态」，对于 `backtrack` 函数来说，会变的参数为 `i` 和 `rest`。
+
+前文 动态规划之编辑距离 说了一种一眼看出重叠子问题的方法，先抽象出递归框架：
+
+```cpp
+void backtrack(int i, int rest) {
+    backtrack(i + 1, rest - nums[i]);
+    backtrack(i + 1, rest + nums[i]);
+}
+```
+
+举个简单的例子，如果 `nums[i] = 0`，会发生什么？
+
+```cpp
+void backtrack(int i, int rest) {
+    backtrack(i + 1, rest);
+    backtrack(i + 1, rest);
+}
+```
+
+你看，这样就出现了两个「状态」完全相同的递归函数，无疑这样的递归计算就是重复的。**这就是重叠子问题，而且只要我们能够找到一个重叠子问题，那一定还存在很多的重叠子问题**。
+
+因此，状态 `(i, rest)` 是可以用备忘录技巧进行优化的：
+
+```cpp
+int findTargetSumWays(int[] nums, int target) {
+    if (nums.length == 0) return 0;
+    return dp(nums, 0, target);
+}
+
+// 备忘录
+HashMap<String, Integer> memo = new HashMap<>();
+int dp(int[] nums, int i, int rest) {
+    // base case
+    if (i == nums.length) {
+        if (rest == 0) return 1;
+        return 0;
+    }
+    // 把它俩转成字符串才能作为哈希表的键
+    String key = i + "," + rest;
+    // 避免重复计算
+    if (memo.containsKey(key)) {
+        return memo.get(key);
+    }
+    // 还是穷举
+    int result = dp(nums, i + 1, rest - nums[i]) + dp(nums, i + 1, rest + nums[i]);
+    // 记入备忘录
+    memo.put(key, result);
+    return result;
+}
+```
+
+以前我们都是用 Python 的元组配合哈希表 `dict` 来做备忘录的，其他语言没有元组，可以用把「状态」转化为字符串作为哈希表的键，这是一个常用的小技巧。
+
+这个解法通过备忘录消除了很多重叠子问题，效率有一定的提升，但是这就结束了吗？  
+
+
