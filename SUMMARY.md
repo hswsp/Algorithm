@@ -31,6 +31,7 @@
 * [动态规划之最长递增子序列](dynamic-programming/dong-tai-gui-hua-zhi-zui-chang-di-zeng-zi-xu-lie.md)
 * [经典动态规划：0-1 背包问题](dynamic-programming/jing-dian-dong-tai-gui-hua-01-bei-bao-wen-ti.md)
 * [经典动态规划：0-1背包问题的变体](dynamic-programming/jing-dian-dong-tai-gui-hua-01-bei-bao-wen-ti-de-bian-ti.md)
+* [经动态规划：编辑距离](dynamic-programming/jing-dong-tai-gui-hua-bian-ji-ju-li.md)
 
 ## Sorting and Order Statistics
 
