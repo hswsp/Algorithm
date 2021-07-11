@@ -4,7 +4,7 @@
 
 先看一下题目：
 
-![](../.gitbook/assets/image%20%2891%29.png)
+![](../.gitbook/assets/image%20%2892%29.png)
 
 算法的函数签名如下：
 
