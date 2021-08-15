@@ -131,7 +131,7 @@ void backtrack(int left, int right,
 
 说了这么多，就是说明这个算法的复杂度是指数级，而且不好算，这里就不具体展开了，是 
 
-![](.gitbook/assets/image%20%2879%29.png)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 有兴趣的读者可以搜索一下**「卡特兰数」**相关的知识了解一下这个复杂度是怎么算的。
 

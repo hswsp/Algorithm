@@ -11,16 +11,14 @@
 
 ## DFS&BFS <a id="backtracking"></a>
 
----
-
-* [回溯算法：从电影《蝴蝶效应》中学习回溯算法的核心思想](hui-su-suan-fa-cong-dian-ying-hu-die-xiao-ying-zhong-xue-xi-hui-su-suan-fa-de-he-xin-si-xiang.md)
-* [回溯算法详解](hui-su-suan-fa-xiang-jie.md)
-* [回溯算法和动态规划比较](hui-su-suan-fa-he-dong-tai-gui-hua-bi-jiao.md)
-* [回溯算法团灭排列/组合/子集问题](hui-su-suan-fa-tuan-mie-pai-lie-zu-he-zi-ji-wen-ti.md)
-* [回溯算法最佳实践——解数独](hui-su-suan-fa-zui-jia-shi-jian-jie-shu-du.md)
-* [回溯算法最佳实践——合法括号生成](hui-su-suan-fa-zui-jia-shi-jian-he-fa-kuo-hao-sheng-cheng.md)
-* [BFS 算法框架详解](bfs-suan-fa-kuang-jia-xiang-jie.md)
-* [益智游戏克星：BFS暴力搜索算法](yi-zhi-you-xi-ke-xing-bfs-bao-li-sou-suo-suan-fa.md)
+* [回溯算法：从电影《蝴蝶效应》中学习回溯算法的核心思想](backtracking/hui-su-suan-fa-cong-dian-ying-hu-die-xiao-ying-zhong-xue-xi-hui-su-suan-fa-de-he-xin-si-xiang.md)
+* [回溯算法详解](backtracking/hui-su-suan-fa-xiang-jie.md)
+* [回溯算法和动态规划比较](backtracking/hui-su-suan-fa-he-dong-tai-gui-hua-bi-jiao.md)
+* [回溯算法团灭排列/组合/子集问题](backtracking/hui-su-suan-fa-tuan-mie-pai-lie-zu-he-zi-ji-wen-ti.md)
+* [回溯算法最佳实践——解数独](backtracking/hui-su-suan-fa-zui-jia-shi-jian-jie-shu-du.md)
+* [回溯算法最佳实践——合法括号生成](backtracking/hui-su-suan-fa-zui-jia-shi-jian-he-fa-kuo-hao-sheng-cheng.md)
+* [BFS 算法框架详解](backtracking/bfs-suan-fa-kuang-jia-xiang-jie.md)
+* [益智游戏克星：BFS暴力搜索算法](backtracking/yi-zhi-you-xi-ke-xing-bfs-bao-li-sou-suo-suan-fa.md)
 
 ## Dynamic Programming
 

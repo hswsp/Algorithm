@@ -116,7 +116,7 @@ void backtrack(vector<int>& nums, int start, vector<int>& track) {
 
 可以看见，对 `res` 的更新是一个**前序遍历**，也就是说，`res` 就是树上的所有节点：
 
-![](.gitbook/assets/image%20%2877%29.png)
+![](../.gitbook/assets/image%20%2877%29.png)
 
 ## 二、组合
 
@@ -132,7 +132,7 @@ vector<vector<int>> combine(int n, int k);
 
 这就是典型的回溯算法，`k` 限制了树的高度，`n` 限制了树的宽度，直接套我们以前讲过的回溯算法模板框架就行了：
 
-![](.gitbook/assets/image%20%2880%29.png)
+![](../.gitbook/assets/image%20%2880%29.png)
 
 ```cpp
 vector<vector<int>>res;
@@ -179,7 +179,7 @@ vector<vector<int>> permute(vector<int>& nums);
 
 首先画出回溯树来看一看：
 
-![](.gitbook/assets/image%20%2878%29.png)
+![](../.gitbook/assets/image%20%2878%29.png)
 
 我们当时使用 Java 代码写的解法：
 
