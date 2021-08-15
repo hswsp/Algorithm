@@ -6,7 +6,7 @@ SnowFlake 算法，是 Twitter 开源的分布式 id 生成算法。其核心思
 
 这 64 个 bit 中，其中 1 个 bit 是不用的，然后用其中的 41 bit 作为毫秒数，用 10 bit 作为工作机器 id，12 bit 作为序列号。
 
-![](.gitbook/assets/image%20%2820%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 
 
@@ -46,7 +46,7 @@ SnowFlake 算法，是 Twitter 开源的分布式 id 生成算法。其核心思
 
 最终一个 64 个 bit 的 id 就出来了，类似于：
 
-![](.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 这个算法可以保证说，一个机房的一台机器上，在同一毫秒内，生成了一个唯一的 id。可能一个毫秒内会生成多个 id，但是有最后 12 个 bit 的序号来区分开来。
 
